@@ -5,6 +5,11 @@ export interface ProductOrService {
   price?: string;
   iconName: string; // Ex: 'Activity', 'ShoppingBag', etc.
   imageUrl?: string;
+  category?: string; // Ex: 'grau', 'sol', 'lente'
+  brand?: string; // Ex: 'Ray-Ban', 'Oakley'
+  installments?: string; // Ex: 'ou 10x de R$ 91,07'
+  tag?: string; // Ex: 'Novo', 'Oferta', 'Premium'
+  hasSplitVisual?: boolean; // Define se o produto exibe o efeito visual de lente dividida (meio a meio)
 }
 
 export interface StoreData {
@@ -44,4 +49,5 @@ export interface StoreData {
   products: Array<ProductOrService>;
   instagramUrl?: string;
   facebookUrl?: string;
+  brands?: Array<{ name: string; desc: string }>;
 }
