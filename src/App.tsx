@@ -3,30 +3,26 @@ import { storeData } from './data';
 import { Icon } from './components/Icon';
 
 // Componente de Logotipo Vetorial Fiel ao Logo Real com texto do Novo HTML
+// Componente de Logotipo Fiel ao Logo Real (Logo oficial por imagem ou óculos estilizado SVG como fallback)
 function Logo({ className = "h-10", dark = false, horizontal = true }: { className?: string; dark?: boolean; horizontal?: boolean }) {
   const iconColor = dark ? "#E30613" : "#FFFFFF";
   const textColor = dark ? "#0F172A" : "#FFFFFF";
-  const subtextColor = dark ? "#E30613" : "#FFFFFF"; // Vermelho no fundo claro, branco no fundo escuro
-  
+  const subtextColor = dark ? "#E30613" : "#FFFFFF";
+
+  const logoImg = storeData.logoUrl ? (
+    <img src={storeData.logoUrl} alt={storeData.name} className="h-8 w-auto object-contain rounded-sm border border-red-500/10" />
+  ) : null;
+
   const iconSvg = (
     <svg className="h-full aspect-[2/1] overflow-visible" viewBox="0 0 720 360" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g stroke={iconColor} strokeWidth="18" strokeLinecap="round" strokeLinejoin="round">
-        {/* Lente esquerda estilizada */}
         <path d="M 180 150 C 210 90, 310 90, 340 150" />
         <path d="M 180 190 C 210 250, 310 250, 340 190" />
-        
-        {/* Lente direita estilizada */}
         <path d="M 380 150 C 410 90, 510 90, 540 150" />
         <path d="M 380 190 C 410 250, 510 250, 540 190" />
-        
-        {/* Ponte nasal */}
         <path d="M 336 160 C 346 150, 374 150, 384 160" strokeWidth="14" />
-        
-        {/* Hastes laterais curvas do logo real */}
         <path d="M 190 155 C 130 155, 100 200, 100 240 C 100 270, 120 270, 125 250 C 130 230, 150 180, 190 180" fill={iconColor} stroke="none" />
         <path d="M 530 155 C 590 155, 620 200, 620 240 C 620 270, 600 270, 595 250 C 590 230, 570 180, 530 180" fill={iconColor} stroke="none" />
-        
-        {/* Hastes horizontais internas */}
         <path d="M 198 170 L 322 170" strokeWidth="12" />
         <path d="M 398 170 L 522 170" strokeWidth="12" />
       </g>
@@ -36,8 +32,8 @@ function Logo({ className = "h-10", dark = false, horizontal = true }: { classNa
   if (horizontal) {
     return (
       <div className={`flex items-center space-x-2.5 ${className}`}>
-        <div className="h-full py-0.5">
-          {iconSvg}
+        <div className="h-full py-0.5 flex items-center">
+          {logoImg || iconSvg}
         </div>
         <div className="flex flex-col leading-[0.95] text-left">
           <span className="text-base sm:text-lg font-black tracking-[0.05em] font-display" style={{ color: textColor }}>EMPÓRIO</span>
@@ -50,8 +46,8 @@ function Logo({ className = "h-10", dark = false, horizontal = true }: { classNa
 
   return (
     <div className={`flex flex-col items-center text-center ${className}`}>
-      <div className="h-16 sm:h-20">
-        {iconSvg}
+      <div className="h-16 sm:h-20 flex items-center justify-center">
+        {logoImg || iconSvg}
       </div>
       <div className="mt-3 flex flex-col leading-[1.0] font-display">
         <span className="text-2xl sm:text-3xl font-black tracking-[0.08em]" style={{ color: textColor }}>EMPÓRIO</span>

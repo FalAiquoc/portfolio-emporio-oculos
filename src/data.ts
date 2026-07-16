@@ -6,6 +6,7 @@ export const storeData: StoreData = {
   description: 'Sua ótica de confiança em Lagoa Nova. Oferecemos as melhores marcas de armações, lentes de alta tecnologia e atendimento especializado para cuidar da sua saúde visual.',
   aboutText: 'Desde nossa fundação, a Empório dos Óculos tem como missão democratizar o acesso a óculos de qualidade em Natal. Combinamos a maior variedade de armações modernas, laboratório próprio de montagem computadorizada rápida e preços competitivos de atacado para garantir a melhor experiência para você e sua família.',
   aboutImage: 'https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&q=80&w=1200',
+  logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhT1q43Vb38hD02_F-c8B02rR8YkH58882Lg&s',
   phone: '(84) 2030-3145',
   phoneFormatted: '8420303145',
   whatsappNumber: '5584988094270', // WhatsApp atualizado do novo HTML
